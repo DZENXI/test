@@ -4,14 +4,13 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using _5_laboratory;
 
-namespace ConsoleApp13
+
+namespace lb5_1_8
 {
-  
-    internal class Program
+    public class ProgramV : IRunnable
     {
-        static void Main(string[] args)
+        public void Run()
         {
             Console.WriteLine("1- MyFrac, 2 - Student");
             int x = int.Parse(Console.ReadLine());
@@ -304,7 +303,7 @@ namespace ConsoleApp13
         static void Block2()
         {
 
-            Student[] studs = ReadData(@"data.txt");
+            Student[] studs = ReadData(@"D:\PALM\lb5_time\lb5_1_8\data.txt");
             runMenu(studs);
         }
     }

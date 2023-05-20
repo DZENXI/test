@@ -4,20 +4,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp13
+namespace lb5_1_8
 {
-    struct MyFrac
+    public struct MyFrac
     {
-        public long nom, denom;
+        public long nom;
+        public long denom;
+
         public MyFrac(long nom_, long denom_)
         {
-            nom = 0; denom = 0;
-            long firstnom = nom_, secdenom = denom_;
+            nom = 0;
+            denom = 0;
+            long firstnom = nom_;
+            long secdenom = denom_;
+
             if (denom_ < 0)
             {
-                firstnom = -nom_; secdenom = -denom_; nom_ = -nom_; denom_ = -denom_;
+                firstnom = -nom_;
+                secdenom = -denom_;
+                nom_ = -nom_;
+                denom_ = -denom_;
             }
-            while ((firstnom != 0) && (secdenom != 0))
+
+            while (firstnom != 0 && secdenom != 0)
             {
                 if (firstnom > secdenom)
                 {
@@ -25,20 +34,24 @@ namespace ConsoleApp13
                 }
                 else
                 {
-                    secdenom = firstnom % secdenom;
+                    secdenom = secdenom % firstnom;
                 }
             }
+
             long sum = firstnom + secdenom;
+
             if (sum > 0)
             {
-                nom = nom_ / sum; denom = denom_ / sum;
+                nom = nom_ / sum;
+                denom = denom_ / sum;
             }
             else
             {
-                nom = nom_; denom = denom_;
+                nom = nom_;
+                denom = denom_;
             }
-
         }
+
         public override string ToString()
         {
             return $"{nom}/{denom}";
